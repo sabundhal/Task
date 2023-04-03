@@ -1,43 +1,43 @@
 import NavTopComponent from "@/components/header.component";
-const categoryData = {};
-export const getStaticPaths = async ()=>{
-  const res = await fetch ("https://dummyjson.com/products/categories");
-  // const data  = await res.json();
-  const categories  = await res.json()
-  console.log("from",categories )
+// const categoryData = {};
+// export const getStaticPaths = async ()=>{
+//   const res = await fetch ("https://dummyjson.com/products/categories");
+//   // const data  = await res.json();
+//   const categories  = await res.json()
+//   console.log("from",categories )
 
 
-const paths = categories.map((currentElement)=>{
-  return{
-      params:{
-          productCat:currentElement.toString()
-      },
+// const paths = categories.map((currentElement)=>{
+//   return{
+//       params:{
+//           productCat:currentElement.toString()
+//       },
       
-  }
-})
-return{
-  paths,
-  fallback:false,
-}
-}
-export const getStaticProps = async (context)=>{
+//   }
+// })
+// return{
+//   paths,
+//   fallback:false,
+// }
+// }
+// export const getStaticProps = async (context)=>{
 
-  const item = context.params.productCat;
-  const res = await fetch(`https://dummyjson.com/products/category/${item}`);
+//   const item = context.params.productCat;
+//   const res = await fetch(`https://dummyjson.com/products/category/${item}`);
 
-  const data = await res.json();
+//   const data = await res.json();
   
 
   
-  // const oneData = data.products;
+//   // const oneData = data.products;
   
 
-  return{
-      props:{
-          data,
-      }
-  }
-}
+//   return{
+//       props:{
+//           data,
+//       }
+//   }
+// }
 
 export default function Home({data}) {
   
@@ -46,7 +46,7 @@ export default function Home({data}) {
 
     <>
      <NavTopComponent></NavTopComponent>
-      <div class="text-primary">Hello</div>
+      <div className="text-primary">Hello</div>
     </>
   )
 }
